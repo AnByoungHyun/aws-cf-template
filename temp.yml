@@ -99,13 +99,18 @@ Resources:
           FromPort: 8000
           ToPort: 8000
           CidrIp: 0.0.0.0/0
+
+  NewKeyPair:
+    Type: AWS::EC2::KeyPair
+    Properties:
+      KeyName: MyKeyPair
   
   BastionHost:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t2.micro
       SubnetId: !Ref PublicSubnet
-      KeyName: your-key-pair
+      KeyName: !Ref NewKeyPair
       SecurityGroupIds: [!Ref BastionHostSecurityGroup]
       ImageId: ami-07d95467596b97099
 
@@ -114,7 +119,7 @@ Resources:
     Properties:
       InstanceType: t2.micro
       SubnetId: !Ref PrivateSubnet
-      KeyName: your-key-pair
+      KeyName: !Ref NewKeyPair
       SecurityGroupIds: [!Ref WebServerSecurityGroup]
       ImageId: ami-07d95467596b97099
 
