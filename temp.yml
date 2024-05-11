@@ -107,7 +107,7 @@ Resources:
       SubnetId: !Ref PublicSubnet
       KeyName: your-key-pair
       SecurityGroupIds: [!Ref BastionHostSecurityGroup]
-      ImageId: ami-0abcdef1234567890
+      ImageId: ami-07d95467596b97099
 
   WebServer:
     Type: AWS::EC2::Instance
@@ -116,7 +116,7 @@ Resources:
       SubnetId: !Ref PrivateSubnet
       KeyName: your-key-pair
       SecurityGroupIds: [!Ref WebServerSecurityGroup]
-      ImageId: ami-0abcdef1234567890
+      ImageId: ami-07d95467596b97099
 
 Outputs:
   WebServerPublicIp:
