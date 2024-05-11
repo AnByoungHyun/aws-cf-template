@@ -108,7 +108,7 @@ Resources:
   BastionHost:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.micro
+      InstanceType: t3.micro
       SubnetId: !Ref PublicSubnet
       KeyName: !Ref NewKeyPair
       SecurityGroupIds: [!Ref BastionHostSecurityGroup]
@@ -117,7 +117,7 @@ Resources:
   WebServer:
     Type: AWS::EC2::Instance
     Properties:
-      InstanceType: t2.micro
+      InstanceType: t3.micro
       SubnetId: !Ref PrivateSubnet
       KeyName: !Ref NewKeyPair
       SecurityGroupIds: [!Ref WebServerSecurityGroup]
